@@ -17,15 +17,21 @@ echo '<pre>' . print_r($json, true) . '</pre>';
         }
     }
 */
+$api = file_get_contents("https://fr.openfoodfacts.org/categories.json");
+$json = json_decode($api, true);
+/*echo '<pre>' . print_r($json, true) . '</pre>';
+$test= $json['tags'][''][''];*/
 
-$test= $json['tags'][''][''];
+foreach($json as $cle =>$value){
+    foreach($value as $tab =>$item){
+        foreach($i)
+    }
+}
 
 ?>
 
 
-$api = file_get_contents("https://fr.openfoodfacts.org/categories.json");
-$json = json_decode($api, true);
-echo '<pre>' . print_r($json, true) . '</pre>';
+
 
 
 
