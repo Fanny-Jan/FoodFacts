@@ -1,4 +1,3 @@
-
 <?php
 
 /*  CATEGORIES 
@@ -76,6 +75,7 @@ $test= $json['tags'][''][''];*/
     </style>
 </head>
 
+
 <body id="top">
 <section class="hero">
     <section class="navigation">
@@ -112,7 +112,7 @@ $test= $json['tags'][''][''];*/
 </section>
 
 
-    </div>
+
 </body>
 </html>
 
