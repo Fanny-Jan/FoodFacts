@@ -1,9 +1,10 @@
+
 <?php
 
-    $api = file_get_contents("https://world.openfoodfacts.org/categories.json");
-    $json = json_decode($api, true);
-echo '<pre>' . print_r($json, true) . '</pre>';
-
+//    $api = file_get_contents("https://world.openfoodfacts.org/categories.json");
+//    $json = json_decode($api, true);
+//echo '<pre>' . print_r($json, true) . '</pre>';
+//
 
 /*  CATEGORIES 
  *
@@ -23,16 +24,14 @@ echo '<pre>' . print_r($json, true) . '</pre>';
     }
 */
 
-$test= $json['tags'][''][''];
 
 
 
 
-$api = file_get_contents("https://fr.openfoodfacts.org/categories.json");
-$json = json_decode($api, true);
-echo '<pre>' . print_r($json, true) . '</pre>';
+
 
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -52,9 +51,9 @@ echo '<pre>' . print_r($json, true) . '</pre>';
     <div class="container-fluid">
         <div class="row">
             <div class="form-group">
-                <form method="post" action="">
-
-
+                <form action="./request.php" method="get">
+                    <input type="text" class="form-control" placeholder="barcode" name="ean13">
+                    <input type="submit" name="Ok" value="trouver ce code barre !">
                 </form>
             </div>
         </div>
@@ -62,6 +61,5 @@ echo '<pre>' . print_r($json, true) . '</pre>';
     </div>
 </body>
 </html>
-
 
 
