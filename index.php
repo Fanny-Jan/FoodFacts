@@ -1,35 +1,4 @@
 
-<?php
-
-/*  CATEGORIES 
- *
- *
-    $api = file_get_contents("https://fr.openfoodfacts.org/categories.json");
-    $json = json_decode($api, true);
-echo '<pre>' . print_r($json, true) . '</pre>';
-   $test = $json['tags'][27]['name'];
-    var_dump($test);
-
-    foreach ($json as $value){
-        foreach ($value as $cat){
-            foreach ($cat as $name){
-                echo $name .'</br>';
-            }
-        }
-    }
-*/
-
-
-?>
-
-
-$api = file_get_contents("https://fr.openfoodfacts.org/categories.json");
-$json = json_decode($api, true);
-echo '<pre>' . print_r($json, true) . '</pre>';
-
-
-
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -44,17 +13,14 @@ echo '<pre>' . print_r($json, true) . '</pre>';
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
-    <H1>OPEN FOOD FACTS</H1>
-    <div class="container-fluid">
+    <H1>OPEN FOOD FACTSSSS</H1>
+    <div class="container">
         <div class="row">
-            <div class="form-group">
-                <form action="./request.php" method="get">
-                    <input type="text" class="form-control" placeholder="barcode" name="ean13">
-                    <input type="submit" name="Ok" value="trouver ce code barre !">
-                </form>
-            </div>
+            <form action="search.php" method="GET">
+                <input type="text" class="form-control" name="search" id="search" placeholder="Entrez votre recherche"><br/>
+                <button type="submit" class="btn btn-default">Rechercher</button>
+            </form>
         </div>
-
     </div>
 </body>
 </html>
