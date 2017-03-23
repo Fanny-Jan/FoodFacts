@@ -16,7 +16,7 @@ $sql = 'SELECT * FROM sport';
 $res = $bdd -> query($sql);
 $req = $res -> fetchAll(PDO::FETCH_OBJ);
 
-foreach ($req as $value) {
+while ($req = mysqli_fetch_assoc($res)) {
     echo '<h1>'.$value->sport.'</h1>';
 }
 ?>
