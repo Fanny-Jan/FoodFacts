@@ -21,11 +21,15 @@
     </tr>
     <tr>
         <td>Nutri Score</td>
-<?php>
-  if ({nutriscore} == 'e'){
-        <td><img src="nutriscore-e.svg"/></td>
-        }
-?>
+        <td><img src="nutriscore-{nutriescore}.svg"/></td>
+    </tr>
+    <tr>
+        <td>Ingrédients</td>
+        <td>{ingredients}</td>
+    </tr>
+    <tr>
+        <td>Calories</td>
+        <td>{energy_value}{energy_unit}</td>
     </tr>
 </table>
 <h2>Response Struct (Array Format)</h2>

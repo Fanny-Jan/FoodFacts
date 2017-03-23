@@ -45,15 +45,19 @@ $json = json_decode($result, true);
 $productName = $json['product']['product_name'];
 $brand = $json['product']['brands'];
 $image = $json['product']['image_small_url'];
-$nutriscore = $json['product']['image_nutrition_thumb_url'];
-$viewData = file_get_contents('responsive.html');
+$nutriscore = $json['product']['nutrition_grade_fr'];
+$ingredients = $json['product']['ingredients_text_with_allergens_de'];
+$energy_value = $json['product']['nutriments']['energy_value'];
+$energy_unit = $json['product']['nutriments']['energy_unit'];
+$viewData = file_get_contents('produit.php');
 echo str_replace(
-    ['{productName}','{brand}','{image}', '{nutriescore}','{json}'],
-    [$productName,$brand,$image, $nutriscore,print_r($json,true)],
+    ['{productName}','{brand}','{image}', '{nutriescore}','{ingredients}','{energy_value}','{energy_unit}','{json}'],
+    [$productName,$brand,$image, $nutriscore, $ingredients, $energy_value, $energy_unit, print_r($json,true)],
     $viewData);
 
 ?>
 
-
-
-
+<!---->
+<!--'{energy_value}','{energy_unit}',-->
+<!---->
+<!--c -->
