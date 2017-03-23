@@ -1,0 +1,3 @@
+<?php
+    OPEN FOOD FACTS
+?>
