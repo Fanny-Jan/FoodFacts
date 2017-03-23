@@ -1,9 +1,9 @@
 <?php
-<<<<<<< HEAD
+
     $api = file_get_contents("https://world.openfoodfacts.org/categories.json");
     $json = json_decode($api, true);
 echo '<pre>' . print_r($json, true) . '</pre>';
-=======
+
 
 /*  CATEGORIES 
  *
@@ -25,14 +25,14 @@ echo '<pre>' . print_r($json, true) . '</pre>';
 
 $test= $json['tags'][''][''];
 
-?>
+
 
 
 $api = file_get_contents("https://fr.openfoodfacts.org/categories.json");
 $json = json_decode($api, true);
 echo '<pre>' . print_r($json, true) . '</pre>';
 
-
+?>
 
 <!doctype html>
 <html lang="en">
@@ -64,5 +64,4 @@ echo '<pre>' . print_r($json, true) . '</pre>';
 </html>
 
 
->>>>>>> fb6c461524769e426497eda6c9b04feb01ae0345
 
