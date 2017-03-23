@@ -32,9 +32,6 @@
         <td>{energy_value}{energy_unit}</td>
     </tr>
 </table>
-<h2>Response Struct (Array Format)</h2>
-<pre>
-    {json}
-</pre>
+
 </body>
 </html>
