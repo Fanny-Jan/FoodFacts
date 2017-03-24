@@ -12,9 +12,9 @@ $data = json_decode(file_get_contents($url), true);
 $count = $data['count'];
 //echo $count;
 
-if($count>3){
-    $maxPage = round($data['count']/3)+1;
-    $k = 3;
+if($count>18){
+    $maxPage = round($data['count']/18)+1;
+    $k = 18;
 }else{
     $maxPage = 1;
     $k = $count;
