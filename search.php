@@ -57,33 +57,13 @@ if(isset($_GET['search'])){
                 </div>
                 <?php
             }
-            if($maxPage>1){?>
-                <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-
-                <?php
-                $page=0;
-                for ($page=0;$page<$maxPage;$page++){
-                    echo'<li><a href="'.$url.' = "https://world.openfoodfacts.org/cgi/search.pl?search_terms='.$search.'&search_simple=1&action=process&json=1&page='.$page.'">'.$page.'</a></li>';
-
-                    }
+            if($maxPage>1){
                 ?>
-                        <a href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                        </li>
-                    </ul>
-            </nav>
-          <?php  }
+                <button id="showNext" onclick="showNext('<?php echo $search;?>', 2)">Afficher les résultats suivants</button>
+                <?php
+            }
             ?>
-
         </div>
-
     </div>
     <?php
 }
