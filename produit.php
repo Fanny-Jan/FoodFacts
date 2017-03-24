@@ -18,8 +18,9 @@ $sql = 'SELECT * FROM sport';
 $res = $bdd -> query($sql);
 $sports = $res -> fetchAll();
 
-foreach($sports as $sport) {
-    echo $sport['sport'].'<br/>';}
+//foreach($sports as $sport) {
+//    echo $sport['sport'].'<br/>';
+//}
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +28,7 @@ foreach($sports as $sport) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>OFF</title>
+    <title>Produit</title>
 </head>
 <body>
 <?php
@@ -88,9 +89,20 @@ if(isset($_GET['id'])) {
 		</table>
             </div>
         </div>
+        <div class="spChoice">
+            <select class="form-control">
+                <?php
+                foreach($sports as $spor) {
+                    echo "<option>$spor->sport</option>";
+                }
+                ?>
+
+            </select>
+        </div>
     </div>
 
 </section>
+
 
 </body>
 </html>
