@@ -1,6 +1,7 @@
 <?php
 
 
+
 //    $api = file_get_contents("https://world.openfoodfacts.org/categories.json");
 //    $json = json_decode($api, true);
 //echo '<pre>' . print_r($json, true) . '</pre>';
@@ -38,16 +39,16 @@ $test= $json['tags'][''][''];*/
 
 
 
+
 include ('header.php');
 
 ?>
-
 <body id="top">
 <section class="hero">
     <section class="navigation">
         <header>
             <div class="header-content">
-                <div class="logo"><a href="#"><img src="public/img/Logo_NutriSport.png" Nutri'Sport Logo"></a>
+                <div class="logo"><a href="index.php"><img src="public/img/Logo_NutriSport.png" Nutri'Sport Logo"></a>
                 </div>
 
             </div>

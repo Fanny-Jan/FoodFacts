@@ -111,6 +111,25 @@ Global Styles
     margin-left: auto;
     margin-right: auto;
     margin-top: 150px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: black;
+}
+
+.tabProd h1{
+    color:#66cd94;
+    font-size: 20px;
+}
+.product-img{
+    overflow:hidden;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:50px;
+    width:90px;
+    height:90px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .group:after {
@@ -382,9 +401,7 @@ Hero
 }
   .hero .down-arrow a {
     color: #fff; }
-  .hero h1 {
-    color: #fff;
-    margin-bottom: 40px; }
+
   .hero p.intro {
       color: #fff;
       font-size: 40px;
