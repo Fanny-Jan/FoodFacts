@@ -1,17 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Open Food Facts TEAM</title>
-    <link rel="stylesheet" href="css/bootstrap-theme.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-</head>
 <?php
+
+include ('header.php');
 if(isset($_GET['search'])){
     $search = str_replace(' ', '+', $_GET['search']);
     if(is_int($search)&&strlen($search)==13){
@@ -30,9 +19,24 @@ if(isset($_GET['search'])){
         $k = $count;
     }
     ?>
+<style>
+    .hero{
+        background-image: url("public/img/header-nutriSport-2.jpg");
+    }
+</style>
+<body id="top">
+<section class="hero">
+    <section class="navigation">
+        <header>
+            <div class="header-content">
+                <div class="logo"><a href="#"><img src="public/img/Logo_NutriSport.png" Nutri'Sport Logo"></a>
+                </div>
 
+            </div>
+        </header>
+    </section>
     <div class="container">
-        <div class="row text-center" id="result">
+        <div class="row text-center tabProd" id="result">
             <?php
             for($i=0;$i<$k;$i++){
                 if(!isset($data['products'][$i]['product_name_fr'])){
@@ -46,20 +50,21 @@ if(isset($_GET['search'])){
                     $img = $data['products'][$i]['image_small_url'];
                 }
                 ?>
-                <div class="col-xs-3">
-<!--                    <form action="request.php." method="GET">-->
-<!--                        <img src="--><?//= $img?><!--" alt="Image du produit"/>-->
-<!--                        <h1>--><?//= $name?><!--</h1>-->
-<!--                        <input type="hidden" id="name" name="name">-->
-<!--                        <button type="submit" class="btn btn-default">Voir plus</button>-->
-<!--                    </form>-->
-                    <a href="produit.php?id=<?= $data['products'][$i]['code']?>" class="thumbnail">
-                        <div class="img-div">
+
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
                             <img src="<?= $img?>" alt="Image du produit" class="search-img" />
+                            <div class="caption">
+                                <h1><?= $name?></h1>
+
+                                <p><a href="produit.php?id=<?= $data['products'][$i]['code']?>" class="btn btn-fill btn-margin-right" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
                         </div>
-                        <h1><?= $name?></h1>
-                    </a>
+                    </div>
                 </div>
+
                 <?php
             }
             if($maxPage>1){
