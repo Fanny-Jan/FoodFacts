@@ -1,4 +1,8 @@
 <footer>
+    <div class="down-arrow floating-arrow footer">
+        <p>Copyright © 2017 Wild Code Scholl & Nutri'Sport | Created with <span class="fa fa-heart pulse2"></span> by Fanny Guillaume & Hagera
+        </p>
+    </div>
 </footer>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="public/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>

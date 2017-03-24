@@ -54,10 +54,7 @@ include ('header.php');
             </div>
         </div>
     </div>
-    <div class="down-arrow floating-arrow footer">
-        <p>Copyright © 2017 Wild Code Scholl & Nutri'Sport | Created with <span class="fa fa-heart pulse2"></span> by Fanny Guillaume & Hagera
-        </p>
-    </div>
+
 
 </section>
 
