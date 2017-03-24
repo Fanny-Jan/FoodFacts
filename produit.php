@@ -21,12 +21,6 @@ $bdd = mysqli_connect (SERVER,USER,PASS,DB);
 //$sports = $res -> fetchAll(PDO::FETCH_ASSOC);
 
 
-$sql = 'SELECT sport FROM sports.sport';
-$res = $bdd -> query($sql);
-$sports = $res -> fetchAll(PDO::FETCH_ASSOC);
-
-
-
 include ('header.php');
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
