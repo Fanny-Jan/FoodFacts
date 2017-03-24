@@ -1,5 +1,6 @@
 <?php
 
+
 include('connect.php');
 
 //$options = array(
@@ -20,6 +21,12 @@ $bdd = mysqli_connect (SERVER,USER,PASS,DB);
 //$sports = $res -> fetchAll(PDO::FETCH_ASSOC);
 
 
+$sql = 'SELECT sport FROM sports.sport';
+$res = $bdd -> query($sql);
+$sports = $res -> fetchAll(PDO::FETCH_ASSOC);
+
+
+
 include ('header.php');
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -31,8 +38,30 @@ if(isset($_GET['id'])) {
 ?>
 
 <style>
-    .hero{
+    .hero {
         background-image: url("public/img/header-nutriSport-2.jpg");
+    }
+    .thumb{
+        margin-top: 100px;
+    }
+    .thumb h1{
+        color: #66cd94;
+        font-size: 30px;
+    }
+
+    .tabProd p{
+        width: 400px;
+        text-align: justify;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .tabProd h2{
+       color: grey;
+        font-size: 30px;
+    }
+
+    .tabProd h3{
+        color: #66cd94;
     }
 </style>
 <body id="top">
@@ -47,16 +76,25 @@ if(isset($_GET['id'])) {
         </header>
     </section>
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-lg-offset-6 col-md-10 col-md-offset-1 tabProd">
+        <div class="row text-center thumb">
+            <div class="col-lg-12 col-lg-offset-10 col-md-10 col-md-offset-1 tabProd">
                 <h1><?= $data['product']['brands']?></h1>
                 <div class="product-img">
-                    <img src="<?= $data['product']['image_small_url']?>"/
-                    <p><?= $data['product']['nutriments']['energy_value'], $data['product']['nutriments']['energy_unit']?></p>
+                    <img src="<?= $data['product']['image_small_url']?>"/>
+                </div>
+                <hr/>
+                <h2>Ingrédients </h2>
+                <p><?= $data['product']['ingredients_text_with_allergens_fr']?></p>
+
+                <img src="nutriscore-<?= $data['product']['nutrition_grade_fr']?>.svg"/>
+
+                <h3>Calories : <?= $data['product']['nutriments']['energy_value'], $data['product']['nutriments']['energy_unit']?></h3>
+
                 </div>
 
             </div>
         </div>
+        <div class="row">
         <div class="spChoice">
             <form method="POST">
                 <label for="sport">Votre sport :</label>
@@ -74,6 +112,7 @@ if(isset($_GET['id'])) {
         </div>
     </div>
     <?php
+
 
     $calprod = $data['product']['nutriments']['energy_value'];
     var_dump($calprod);
@@ -93,37 +132,13 @@ if(isset($_GET['id'])) {
     }
     ?>
 
+        </div>
+        </div>
+    </div>
+
+
 </section>
 
-
-</body>
-</html>
-
-
-
-<table>
-    <tr>
-        <td>Product Name</td>
-        <td><?= $data['product']['product_name_fr']?></td>
-    </tr>
-    <tr>
-        <td>Brand</td>
-        <td><?= $data['product']['brands']?></td>
-    </tr>
-    <tr>
-        <td>Image</td>
-        <td><img src="<?= $data['product']['image_small_url']?>"/></td>
-    </tr>
-    <tr>
-        <td>Nutri Score</td>
-        <td><img src="nutriscore-<?= $data['product']['nutrition_grade_fr']?>.svg"/></td>
-    </tr>
-    <tr>
-        <td>Ingrédients</td>
-        <td><?= $data['product']['ingredients_text_with_allergens_fr']?></td>
-    </tr>
-    <tr>
-        <td>Calories</td>
-        <td><?= $data['product']['nutriments']['energy_value'], $data['product']['nutriments']['energy_unit']?></td>
-    </tr>
-</table>
+<?php
+    include ('footer.php');
+?>
