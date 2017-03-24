@@ -10,7 +10,7 @@ if(isset($_GET['search'])){
     $url = "https://world.openfoodfacts.org/cgi/search.pl?search_terms='$search'&search_simple=1&action=process&json=1&page=1";
     $data = json_decode(file_get_contents($url), true);
     $count = $data['count'];
-    echo $count;
+    //echo $count;
 
     if($count>20){
         $maxPage = round($data['count']/20)+1;
@@ -23,6 +23,11 @@ if(isset($_GET['search'])){
 <style>
     .hero{
         background-image: url("public/img/header-nutriSport-2.jpg");
+    }
+
+    .thumbnail{
+        background-color: #66cd94;
+        background-o
     }
 </style>
 <body id="top">
