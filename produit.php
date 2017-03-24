@@ -72,10 +72,11 @@ if(isset($_GET['id'])) {
             </div>
         </div>
         <div class="spChoice">
-            <select class="form-control">
+
                 <?php
-                foreach($sports as $spor) {
-                    echo "<option>$spor->sport</option>";
+              echo' <select class="form-control">';
+                foreach($sports as $sport) {
+                    echo '<option>'.$sport.'</option>';
                 }
                 ?>
 
