@@ -1,5 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Open Food Facts TEAM</title>
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
 <?php
-$error = 0;
 if(isset($_GET['search'])){
     $search = str_replace(' ', '+', $_GET['search']);
     if(is_int($search)&&strlen($search)==13){
@@ -35,8 +47,16 @@ if(isset($_GET['search'])){
                 }
                 ?>
                 <div class="col-xs-3">
-                    <a href="#" class="thumbnail">
-                        <img src="<?= $img?>" alt="Image du produit"/>
+<!--                    <form action="request.php." method="GET">-->
+<!--                        <img src="--><?//= $img?><!--" alt="Image du produit"/>-->
+<!--                        <h1>--><?//= $name?><!--</h1>-->
+<!--                        <input type="hidden" id="name" name="name">-->
+<!--                        <button type="submit" class="btn btn-default">Voir plus</button>-->
+<!--                    </form>-->
+                    <a href="produit.php?id=<?= $data['products'][$i]['code']?>" class="thumbnail">
+                        <div class="img-div">
+                            <img src="<?= $img?>" alt="Image du produit" class="search-img" />
+                        </div>
                         <h1><?= $name?></h1>
                     </a>
                 </div>
@@ -44,26 +64,36 @@ if(isset($_GET['search'])){
             }
             if($maxPage>1){
                 ?>
-                <button id="showNext" onclick="nextpage('<?php echo $search;?>', 2)">Afficher les résultats suivants</button>
+
                 <?php
             }
             ?>
-            <ul id="pages" class="pagination">
-                <li class="unavailable">Pages :</li>
-                <li class="current"><a href="">1</a></li>
-                <li><a href="/cgi/search.pl?action=process&search_terms=coca&sort_by=unique_scans_n&page_size=20&page=2">2</a></li>
-
-            </ul>
-
 
         </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
     <?php
-}else{
-    $error++;
-}
-if($error>0){
-    echo 'Une erreur s\'est produite';
 }
 
 ?>
+
+</body>
+</html>
