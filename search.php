@@ -12,9 +12,9 @@ $data = json_decode(file_get_contents($url), true);
 $count = $data['count'];
 //echo $count;
 
-if($count>18){
-    $maxPage = round($data['count']/18)+1;
-    $k = 18;
+if($count>12){
+    $maxPage = round($data['count']/12)+1;
+    $k = 12;
 }else{
     $maxPage = 1;
     $k = $count;
@@ -50,7 +50,7 @@ margin-top: 200px;
 }
 .thumb h1{
 color: white;
-font-size: 30px;
+font-size: 20px;
 
 }
 </style>
@@ -85,12 +85,14 @@ font-size: 30px;
 
 
                     <div class="col-sm-6 col-md-4 col-lg-4 ">
+
                         <div class="thumbnail ">
                         <img src="<?= $img?>" alt="Image du produit" class="search-img" />
                         <div class="caption">
                             <h1><?= $name?></h1>
 
                             <p><a href="produit.php?id=<?= $data['products'][$i]['code']?>" class="btn btn-accent" role="button">I Want It</a> </p>
+
                         </div>
                     </div>
 
