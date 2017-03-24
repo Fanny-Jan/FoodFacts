@@ -124,9 +124,9 @@ Global Styles
     overflow:hidden;
     -webkit-border-radius:50px;
     -moz-border-radius:50px;
-    border-radius:50px;
-    width:90px;
-    height:90px;
+    border-radius:70px;
+    width:130px;
+    height:130px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -394,10 +394,11 @@ Navigation
 Hero
 ========================================================================== */
 .hero {
-  min-height: 750px;
+  min-height: 790px;
   background: url("../img/header-nutriSport.jpg") center center;
   background-size: cover;
   position: relative;
+
 }
   .hero .down-arrow a {
     color: #fff; }

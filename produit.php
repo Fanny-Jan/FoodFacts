@@ -1,6 +1,6 @@
 <?php
 
-include('connect.php');
+/*include('connect.php');
 
 $options = array(
         PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
@@ -14,7 +14,7 @@ try {
 }
 $sql = 'SELECT sport FROM sports.sport';
 $res = $bdd -> query($sql);
-$sports = $res -> fetchAll(PDO::FETCH_ASSOC);
+$sports = $res -> fetchAll(PDO::FETCH_ASSOC);*/
 
 
 
@@ -28,8 +28,19 @@ if(isset($_GET['id'])) {
 ?>
 
 <style>
-    .hero{
+    .hero {
         background-image: url("public/img/header-nutriSport-2.jpg");
+    }
+    .thumb{
+        margin-top: 100px;
+    }
+    .thumb h1{
+        color: #66cd94;
+        font-size: 30px;
+    }
+
+    .thumb p{
+        text-align: center;
     }
 </style>
 <body id="top">
@@ -44,7 +55,7 @@ if(isset($_GET['id'])) {
         </header>
     </section>
     <div class="container">
-        <div class="row">
+        <div class="row thumb">
             <div class="col-lg-12 col-lg-offset-6 col-md-10 col-md-offset-1 tabProd">
                 <h1><?= $data['product']['brands']?></h1>
                 <div class="product-img">
@@ -52,7 +63,11 @@ if(isset($_GET['id'])) {
                 </div>
 
             </div>
+
+            <p><?= $data['product']['ingredients_text_with_allergens_fr']?></p>
+            
         </div>
+        <div class="row">
         <div class="spChoice">
             <?php
 
@@ -66,15 +81,12 @@ if(isset($_GET['id'])) {
               echo '</select>';
                 ?>
 
-
+        </div>
         </div>
     </div>
 
 </section>
 
-
-</body>
-</html>
 
 
 
@@ -104,3 +116,8 @@ if(isset($_GET['id'])) {
         <td><?= $data['product']['nutriments']['energy_value'], $data['product']['nutriments']['energy_unit']?></td>
     </tr>
 </table>
+
+
+<?php
+    include ('footer.php');
+?>

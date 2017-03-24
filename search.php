@@ -12,9 +12,9 @@ if(isset($_GET['search'])){
     $count = $data['count'];
     //echo $count;
 
-    if($count>3){
-        $maxPage = round($data['count']/3)+1;
-        $k = 3;
+    if($count>18){
+        $maxPage = round($data['count']/18)+1;
+        $k = 18;
     }else{
         $maxPage = 1;
         $k = $count;
@@ -26,12 +26,31 @@ if(isset($_GET['search'])){
     }
 
     .thumbnail{
-        background-color: #66cd94;
-       display: block;
+        background-color: rgba(102, 205, 148,0.4);
+        display: block;
+        border: none;
+    }
+    .thumbnail h1{
+        font-size: 20px;
+        color:white;
     }
 
-    .thumb{
-        margin-top: 150px;
+    .thumbnail img{
+        overflow:hidden;
+        -webkit-border-radius:50px;
+        -moz-border-radius:50px;
+        border-radius:70px;
+        width:130px;
+        height:130px;
+    }
+
+    .thumb:first-child{
+        margin-top: 200px;
+    }
+    .thumb h1{
+        color: white;
+        font-size: 30px;
+
     }
 </style>
 <body id="top">
@@ -46,7 +65,9 @@ if(isset($_GET['search'])){
         </header>
     </section>
     <div class="container">
-        <div class="row text-center" id="result">
+        <div class="row text-center  thumb" id="result">
+            <h1>Choisissez votre produit parmis la sélection suivante </h1>
+            <hr/>
             <?php
             for($i=0;$i<$k;$i++){
                 if(!isset($data['products'][$i]['product_name_fr'])){
@@ -62,8 +83,8 @@ if(isset($_GET['search'])){
                 ?>
 
 
-                    <div class="col-sm-6 col-md-4 col-lg-4  thumb">
-                        <div class="thumbnail">
+                    <div class="col-sm-6 col-md-4 col-lg-4 ">
+                        <div class="thumbnail ">
 
                             <img src="<?= $img?>" alt="Image du produit" class="search-img" />
                             <div class="caption">
@@ -108,7 +129,6 @@ if(isset($_GET['search'])){
     <?php
 }
 
+include ('footer.php');
 ?>
 
-</body>
-</html>
