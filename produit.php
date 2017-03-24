@@ -1,7 +1,5 @@
-
-
 <?php
-
+/*
 include('connect.php');
 
 $options = array(
@@ -18,21 +16,25 @@ $sql = 'SELECT * FROM sport';
 $res = $bdd -> query($sql);
 $sports = $res -> fetchAll();
 
+<<<<<<< HEAD
+//foreach($sports as $sport) {
+//    echo $sport['sport'].'<br/>';
+//}
+?>
+=======
 foreach($sports as $sport) {
     echo $sport['sport'].'<br/>';}
-?>
-
-<!DOCTYPE html>
+*/?>
 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>OFF</title>
+    <title>Produit</title>
 </head>
 <body>
 <?php
-
-
+include('connect.php');
+include ('header.php');
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
     $url = "http://fr.openfoodfacts.org/api/v0/produit/$id.json";
@@ -60,40 +62,62 @@ if(isset($_GET['id'])) {
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-lg-offset-6 col-md-10 col-md-offset-1 tabProd">
-		<table>
-		    <tr>
-			<td>Product Name</td>
-			<td><?= $data['product']['product_name_fr']?></td>
-		    </tr>
-		    <tr>
-			<td>Brand</td>
-			<td><?= $data['product']['brands']?></td>
-		    </tr>
-		    <tr>
-			<td>Image</td>
-			<td><img src="<?= $data['product']['image_small_url']?>"/></td>
-		    </tr>
-		    <tr>
-			<td>Nutri Score</td>
-			<td><img src="nutriscore-<?= $data['product']['nutrition_grade_fr']?>.svg"/></td>
-		    </tr>
-		    <tr>
-			<td>Ingrédients</td>
-			<td><?= $data['product']['ingredients_text_with_allergens_fr']?></td>
-		    </tr>
-		    <tr>
-			<td>Calories</td>
-			<td><?= $data['product']['nutriments']['energy_value'], $data['product']['nutriments']['energy_unit']?></td>
-		    </tr>
-		</table>
+                <h1><?= $data['product']['brands']?></h1>
+                <div class="product-img">
+                    <img src="<?= $data['product']['image_small_url']?>"/
+                </div>
+
+
+
             </div>
+        </div>
+        <div class="spChoice">
+            <?php
+
+         echo' <select class="form-control name=$sport->sport">
+                    foreach ($sport as $spor){
+                    echo $spor;
+
+                }
+
+               </select>';
+                ?>
+
+            </select>
         </div>
     </div>
 
 </section>
+
 
 </body>
 </html>
 
 
 
+<table>
+    <tr>
+        <td>Product Name</td>
+        <td><?= $data['product']['product_name_fr']?></td>
+    </tr>
+    <tr>
+        <td>Brand</td>
+        <td><?= $data['product']['brands']?></td>
+    </tr>
+    <tr>
+        <td>Image</td>
+        <td><img src="<?= $data['product']['image_small_url']?>"/></td>
+    </tr>
+    <tr>
+        <td>Nutri Score</td>
+        <td><img src="nutriscore-<?= $data['product']['nutrition_grade_fr']?>.svg"/></td>
+    </tr>
+    <tr>
+        <td>Ingrédients</td>
+        <td><?= $data['product']['ingredients_text_with_allergens_fr']?></td>
+    </tr>
+    <tr>
+        <td>Calories</td>
+        <td><?= $data['product']['nutriments']['energy_value'], $data['product']['nutriments']['energy_unit']?></td>
+    </tr>
+</table>

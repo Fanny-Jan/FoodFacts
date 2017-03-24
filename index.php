@@ -19,6 +19,8 @@
 <body>
 
 <?php
+
+
 include ('header.php');
 
 ?>
@@ -27,7 +29,7 @@ include ('header.php');
     <section class="navigation">
         <header>
             <div class="header-content">
-                <div class="logo"><a href="#"><img src="public/img/Logo_NutriSport.png" Nutri'Sport Logo"></a>
+                <div class="logo"><a href="index.php"><img src="public/img/Logo_NutriSport.png" Nutri'Sport Logo"></a>
                 </div>
 
             </div>
