@@ -33,7 +33,7 @@ foreach($sports as $sport) {
 </head>
 <body>
 <?php
-
+include('connect.php');
 include ('header.php');
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -70,11 +70,15 @@ if(isset($_GET['id'])) {
             </div>
         </div>
         <div class="spChoice">
-            <select class="form-control">
-                <?php
-                foreach($sports as $spor) {
-                    echo "<option>$spor->sport</option>";
+            <?php
+
+         echo' <select class="form-control name=$sport->sport">
+                    foreach ($sport as $spor){
+                    echo $spor;
+
                 }
+
+               </select>';
                 ?>
 
             </select>
