@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
-    <H1>OPEN FOOD FACTSSSS</H1>
+    <H1>OPEN FOOD FACTSSSSXXX</H1>
     <div class="container">
         <div class="row">
             <form action="search.php" method="GET">
