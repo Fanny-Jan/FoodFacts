@@ -1,4 +1,4 @@
-<?php
+
 
 <!doctype html>
 <html lang="en">
@@ -15,10 +15,10 @@
 </head>
 <body>
 
+<?php
 include ('header.php');
 
 ?>
-
 <body id="top">
 <section class="hero">
     <section class="navigation">
