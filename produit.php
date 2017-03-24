@@ -1,5 +1,5 @@
 <?php
-/*
+
 include('connect.php');
 
 $options = array(
@@ -12,28 +12,12 @@ try {
     die('Connexion à la base de données impossible');
 
 }
-$sql = 'SELECT * FROM sport';
+$sql = 'SELECT sport FROM sports.sport';
 $res = $bdd -> query($sql);
-$sports = $res -> fetchAll();
+$sports = $res -> fetchAll(PDO::FETCH_ASSOC);
 
-<<<<<<< HEAD
-//foreach($sports as $sport) {
-//    echo $sport['sport'].'<br/>';
-//}
-?>
-=======
-foreach($sports as $sport) {
-    echo $sport['sport'].'<br/>';}
-*/?>
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Produit</title>
-</head>
-<body>
-<?php
-include('connect.php');
+
 include ('header.php');
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -72,16 +56,17 @@ if(isset($_GET['id'])) {
         <div class="spChoice">
             <?php
 
-         echo' <select class="form-control name=$sport->sport">
-                    foreach ($sport as $spor){
-                    echo $spor;
+         echo' <select class="form-control" name="sport">';
+                    foreach ($sports as $sport){
+                        foreach ($sport as $s) {
+                            echo '<option>' . $s . '</option>';
+                        }
+               }
 
-                }
-
-               </select>';
+              echo '</select>';
                 ?>
 
-            </select>
+
         </div>
     </div>
 
