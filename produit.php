@@ -47,7 +47,6 @@ if(isset($_GET['id'])) {
     }
     .tabProd h2{
        color: grey;
-      
         font-size: 30px;
     }
 
