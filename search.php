@@ -51,7 +51,7 @@ if(isset($_GET['search'])){
                     $img = $data['products'][$i]['image_small_url'];
                 }
                 ?>
- 
+
                 <div class="row">
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">

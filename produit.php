@@ -1,8 +1,5 @@
-
-
-
 <?php
-
+/*
 include('connect.php');
 
 $options = array(
@@ -21,7 +18,7 @@ $sports = $res -> fetchAll();
 
 foreach($sports as $sport) {
     echo $sport['sport'].'<br/>';}
-?>
+*/?>
 
 
 
