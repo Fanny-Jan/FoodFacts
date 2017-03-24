@@ -15,11 +15,10 @@ try {
 }
 $sql = 'SELECT * FROM sport';
 $res = $bdd -> query($sql);
-$req = $res -> fetchAll(PDO::FETCH_OBJ);
+$sports = $res -> fetchAll();
 
-while ($req = mysqli_fetch_assoc($res)) {
-    echo '<h1>'.$value->sport.'</h1>';
-}
+foreach($sports as $sport) {
+    echo $sport['sport'].'<br/>';}
 ?>
 
 <!DOCTYPE html>
