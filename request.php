@@ -1,4 +1,5 @@
 <?php
+include ('header.php');
 
 
 //Default parameters by case
@@ -19,7 +20,7 @@ $productName = $json['product']['product_name'];
 $brand = $json['product']['brands'];
 $image = $json['product']['image_small_url'];
 $nutriscore = $json['product']['nutrition_grade_fr'];
-$ingredients = $json['product']['ingredients_text_with_allergens_de'];
+$ingredients = $json['product']['ingredients_text_with_allergens_fr'];
 $energy_value = $json['product']['nutriments']['energy_value'];
 $energy_unit = $json['product']['nutriments']['energy_unit'];
 $viewData = file_get_contents('produit.php');
