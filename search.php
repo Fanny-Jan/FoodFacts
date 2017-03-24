@@ -12,9 +12,9 @@ if(isset($_GET['search'])){
     $count = $data['count'];
     //echo $count;
 
-    if($count>20){
-        $maxPage = round($data['count']/20)+1;
-        $k = 20;
+    if($count>3){
+        $maxPage = round($data['count']/3)+1;
+        $k = 3;
     }else{
         $maxPage = 1;
         $k = $count;
@@ -27,7 +27,11 @@ if(isset($_GET['search'])){
 
     .thumbnail{
         background-color: #66cd94;
-        background-o
+       display: block;
+    }
+
+    .thumb{
+        margin-top: 150px;
     }
 </style>
 <body id="top">
@@ -35,14 +39,14 @@ if(isset($_GET['search'])){
     <section class="navigation">
         <header>
             <div class="header-content">
-                <div class="logo"><a href="#"><img src="public/img/Logo_NutriSport.png" Nutri'Sport Logo"></a>
+                <div class="logo"><a href="index.php"><img src="public/img/Logo_NutriSport.png" Nutri'Sport Logo"></a>
                 </div>
 
             </div>
         </header>
     </section>
     <div class="container">
-        <div class="row text-center tabProd" id="result">
+        <div class="row text-center" id="result">
             <?php
             for($i=0;$i<$k;$i++){
                 if(!isset($data['products'][$i]['product_name_fr'])){
@@ -57,18 +61,18 @@ if(isset($_GET['search'])){
                 }
                 ?>
 
-                <div class="row">
-                    <div class="col-sm-6 col-md-4">
+
+                    <div class="col-sm-6 col-md-4 col-lg-4  thumb">
                         <div class="thumbnail">
 
                             <img src="<?= $img?>" alt="Image du produit" class="search-img" />
                             <div class="caption">
                                 <h1><?= $name?></h1>
 
-                                <p><a href="produit.php?id=<?= $data['products'][$i]['code']?>" class="btn btn-fill btn-margin-right" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                                <p><a href="produit.php?id=<?= $data['products'][$i]['code']?>" class="btn btn-accent" role="button">I Want It</a> </p>
                             </div>
                         </div>
-                    </div>
+
                 </div>
 
                 <?php

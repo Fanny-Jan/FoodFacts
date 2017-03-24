@@ -53,7 +53,7 @@ if(isset($_GET['id'])) {
     <section class="navigation">
         <header>
             <div class="header-content">
-                <div class="logo"><a href="#"><img src="public/img/Logo_NutriSport.png" Nutri'Sport Logo"></a>
+                <div class="logo"><a href="index.php"><img src="public/img/Logo_NutriSport.png" Nutri'Sport Logo"></a>
                 </div>
 
             </div>
@@ -66,8 +66,6 @@ if(isset($_GET['id'])) {
                 <div class="product-img">
                     <img src="<?= $data['product']['image_small_url']?>"/
                 </div>
-
-
 
             </div>
         </div>
