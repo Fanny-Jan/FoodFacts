@@ -22,46 +22,38 @@ if($count>3){
 ?>
 
 <style>
-    .hero{
-        background-image: url("public/img/header-nutriSport-2.jpg");
-    }
+.hero{
+background-image: url("public/img/header-nutriSport-2.jpg");
+}
 
-    .thumbnail{
+.thumbnail{
+background-color: rgba(102, 205, 148,0.4);
+display: block;
+border: none;
+}
+.thumbnail h1{
+font-size: 20px;
+color:white;
+}
 
-        background-color: #66cd94;
-        display: block;
-    }
+.thumbnail img{
+overflow:hidden;
+-webkit-border-radius:50px;
+-moz-border-radius:50px;
+border-radius:70px;
+width:130px;
+height:130px;
+}
 
-    .thumb{
-        margin-top: 150px;
+.thumb:first-child{
+margin-top: 200px;
+}
+.thumb h1{
+color: white;
+font-size: 30px;
 
-        background-color: rgba(102, 205, 148,0.4);
-        display: block;
-        border: none;
-    }
-    .thumbnail h1{
-        font-size: 20px;
-        color:white;
-    }
-
-    .thumbnail img{
-        overflow:hidden;
-        -webkit-border-radius:50px;
-        -moz-border-radius:50px;
-        border-radius:70px;
-        width:130px;
-        height:130px;
-    }
-
-    .thumb:first-child{
-        margin-top: 200px;
-    }
-    .thumb h1{
-        color: white;
-        font-size: 30px;
-    }
+}
 </style>
-
 <body id="top">
 <section class="hero">
     <section class="navigation">
