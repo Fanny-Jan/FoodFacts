@@ -1,37 +1,50 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Open Food Facts TEAM</title>
-    <link rel="stylesheet" href="css/bootstrap-theme.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-</head>
 <?php
+
+include ('header.php');
 if(isset($_GET['search'])){
-    $search = str_replace(' ', '+', $_GET['search']);
-    if(is_int($search)&&strlen($search)==13){
-        header('Location : produit.php?id='.$search);
-        exit();
-    }
-    $url = "https://world.openfoodfacts.org/cgi/search.pl?search_terms='$search'&search_simple=1&action=process&json=1&page=1";
-    $data = json_decode(file_get_contents($url), true);
-    $count = $data['count'];
-    echo $count;
+$search = str_replace(' ', '+', $_GET['search']);
+if(is_int($search)&&strlen($search)==13){
+    header('Location : produit.php?id='.$search);
+    exit();
+}
+$url = "https://world.openfoodfacts.org/cgi/search.pl?search_terms='$search'&search_simple=1&action=process&json=1&page=1";
+$data = json_decode(file_get_contents($url), true);
+$count = $data['count'];
+//echo $count;
 
-    if($count>20){
-        $maxPage = round($data['count']/20)+1;
-        $k = 20;
-    }else{
-        $maxPage = 1;
-        $k = $count;
+if($count>3){
+    $maxPage = round($data['count']/3)+1;
+    $k = 3;
+}else{
+    $maxPage = 1;
+    $k = $count;
+}
+?>
+<style>
+    .hero{
+        background-image: url("public/img/header-nutriSport-2.jpg");
     }
-    ?>
 
+    .thumbnail{
+        background-color: #66cd94;
+        display: block;
+    }
+
+    .thumb{
+        margin-top: 150px;
+    }
+</style>
+<body id="top">
+<section class="hero">
+    <section class="navigation">
+        <header>
+            <div class="header-content">
+                <div class="logo"><a href="index.php"><img src="public/img/Logo_NutriSport.png" Nutri'Sport Logo"></a>
+                </div>
+
+            </div>
+        </header>
+    </section>
     <div class="container">
         <div class="row text-center" id="result">
             <?php
@@ -47,28 +60,33 @@ if(isset($_GET['search'])){
                     $img = $data['products'][$i]['image_small_url'];
                 }
                 ?>
-                <div class="col-xs-3">
-                    <a href="produit.php?id=<?= $data['products'][$i]['code']?>" class="thumbnail">
-                        <div class="img-div">
-                            <img src="<?= $img?>" alt="Image du produit" class="search-img" />
+
+
+                <div class="col-sm-6 col-md-4 col-lg-4  thumb">
+                    <div class="thumbnail">
+
+                        <img src="<?= $img?>" alt="Image du produit" class="search-img" />
+                        <div class="caption">
+                            <h1><?= $name?></h1>
+
+                            <p><a href="produit.php?id=<?= $data['products'][$i]['code']?>" class="btn btn-accent" role="button">I Want It</a> </p>
                         </div>
-                        <h1><?= $name?></h1>
-                    </a>
+                    </div>
+
                 </div>
-                <?php
-            }
-            if($maxPage>1){
-                ?>
-                <button id="showNext" onclick="showNext('<?php echo $search;?>', 2)">Afficher les résultats suivants</button>
+
                 <?php
             }
             ?>
+
         </div>
+
     </div>
     <?php
-}
+    }
 
-?>
+    ?>
 
 </body>
 </html>
+
