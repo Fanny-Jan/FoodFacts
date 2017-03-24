@@ -3,7 +3,6 @@
 include ('header.php');
 
 ?>
-
 <body id="top">
 <section class="hero">
     <section class="navigation">
@@ -45,7 +44,5 @@ include ('header.php');
 
 </body>
 </html>
-
-
 
 

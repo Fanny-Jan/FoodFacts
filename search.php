@@ -10,6 +10,7 @@ if(isset($_GET['search'])){
     $url = "https://world.openfoodfacts.org/cgi/search.pl?search_terms='$search'&search_simple=1&action=process&json=1&page=1";
     $data = json_decode(file_get_contents($url), true);
     $count = $data['count'];
+    echo $count;
 
     if($count>20){
         $maxPage = round($data['count']/20)+1;
@@ -50,11 +51,11 @@ if(isset($_GET['search'])){
                     $img = $data['products'][$i]['image_small_url'];
                 }
                 ?>
-
-
+ 
                 <div class="row">
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
+
                             <img src="<?= $img?>" alt="Image du produit" class="search-img" />
                             <div class="caption">
                                 <h1><?= $name?></h1>
@@ -67,33 +68,33 @@ if(isset($_GET['search'])){
 
                 <?php
             }
-            if($maxPage>1){
-                ?>
+            if($maxPage>1){?>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
 
                 <?php
-            }
+                $page=0;
+                for ($page=0;$page<$maxPage;$page++){
+                    echo'<li><a href="'.$url.' = "https://world.openfoodfacts.org/cgi/search.pl?search_terms='.$search.'&search_simple=1&action=process&json=1&page='.$page.'">'.$page.'</a></li>';
+
+                    }
+                ?>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                        </li>
+                    </ul>
+            </nav>
+          <?php  }
             ?>
 
         </div>
-        <nav aria-label="Page navigation">
-            <ul class="pagination">
-                <li>
-                    <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                    <a href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+
     </div>
     <?php
 }
