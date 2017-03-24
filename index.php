@@ -1,6 +1,49 @@
 
 
-<!doctype html>
+
+//    $api = file_get_contents("https://world.openfoodfacts.org/categories.json");
+//    $json = json_decode($api, true);
+//echo '<pre>' . print_r($json, true) . '</pre>';
+//
+
+/*  CATEGORIES 
+ *
+ *
+    $api = file_get_contents("https://fr.openfoodfacts.org/categories.json");
+    $json = json_decode($api, true);
+echo '<pre>' . print_r($json, true) . '</pre>';
+   $test = $json['tags'][27]['name'];
+    var_dump($test);
+
+    foreach ($json as $value){
+        foreach ($value as $cat){
+            foreach ($cat as $name){
+                echo $name .'</br>';
+            }
+        }
+    }
+*/
+
+
+
+
+
+
+$api = file_get_contents("https://fr.openfoodfacts.org/categories.json");
+$json = json_decode($api, true);
+/*echo '<pre>' . print_r($json, true) . '</pre>';
+$test= $json['tags'][''][''];*/
+
+
+
+?>
+
+<!Doctype html>
+<!--[if lt IE 7]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="ie9" lang="en"> <![endif]-->
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -60,7 +103,5 @@ include ('header.php');
 
 </body>
 </html>
-
-
 
 

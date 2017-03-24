@@ -1,4 +1,29 @@
+
+
+<?php
+
+include('connect.php');
+
+$options = array(
+        PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
+);
+
+try {
+    $bdd = new PDO(SERVER_DB, USER, PASS,$options );
+} catch (Exception $e){
+    die('Connexion à la base de données impossible');
+
+}
+$sql = 'SELECT * FROM sport';
+$res = $bdd -> query($sql);
+$sports = $res -> fetchAll();
+
+foreach($sports as $sport) {
+    echo $sport['sport'].'<br/>';}
+?>
+
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">

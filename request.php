@@ -28,7 +28,3 @@ echo str_replace(
     ['{productName}','{brand}','{image}', '{nutriscore}','{ingredients}','{energy_value}','{energy_unit}','{json}'],
     [$productName,$brand,$image, $nutriscore, $ingredients, $energy_value, $energy_unit, print_r($json,true)],
     $viewData);
-
-
-?>
-
