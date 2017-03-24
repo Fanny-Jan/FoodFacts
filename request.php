@@ -12,6 +12,8 @@ $url = 'http://{country}.openfoodfacts.org/api/v0/{product}/{scan}.json';
 $result = file_get_contents($url);
 $json = json_decode($result, true);
 
+https://world.openfoodfacts.org/cgi/search.pl?search_terms=banania&search_simple=1&action=process&json=1
+
 // Get the datas we want
 $productName = $json['product']['product_name'];
 $brand = $json['product']['brands'];
