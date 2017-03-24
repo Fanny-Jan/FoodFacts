@@ -12,9 +12,9 @@ if(isset($_GET['search'])){
     $count = $data['count'];
     //echo $count;
 
-    if($count>20){
-        $maxPage = round($data['count']/20)+1;
-        $k = 20;
+    if($count>18){
+        $maxPage = round($data['count']/18)+1;
+        $k = 18;
     }else{
         $maxPage = 1;
         $k = $count;
@@ -26,8 +26,31 @@ if(isset($_GET['search'])){
     }
 
     .thumbnail{
-        background-color: #66cd94;
-        background-o
+        background-color: rgba(102, 205, 148,0.4);
+        display: block;
+        border: none;
+    }
+    .thumbnail h1{
+        font-size: 20px;
+        color:white;
+    }
+
+    .thumbnail img{
+        overflow:hidden;
+        -webkit-border-radius:50px;
+        -moz-border-radius:50px;
+        border-radius:70px;
+        width:130px;
+        height:130px;
+    }
+
+    .thumb:first-child{
+        margin-top: 200px;
+    }
+    .thumb h1{
+        color: white;
+        font-size: 30px;
+
     }
 </style>
 <body id="top">
@@ -35,14 +58,16 @@ if(isset($_GET['search'])){
     <section class="navigation">
         <header>
             <div class="header-content">
-                <div class="logo"><a href="#"><img src="public/img/Logo_NutriSport.png" Nutri'Sport Logo"></a>
+                <div class="logo"><a href="index.php"><img src="public/img/Logo_NutriSport.png" Nutri'Sport Logo"></a>
                 </div>
 
             </div>
         </header>
     </section>
     <div class="container">
-        <div class="row text-center tabProd" id="result">
+        <div class="row text-center  thumb" id="result">
+            <h1>Choisissez votre produit parmis la sélection suivante </h1>
+            <hr/>
             <?php
             for($i=0;$i<$k;$i++){
                 if(!isset($data['products'][$i]['product_name_fr'])){
@@ -57,18 +82,18 @@ if(isset($_GET['search'])){
                 }
                 ?>
 
-                <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
+
+                    <div class="col-sm-6 col-md-4 col-lg-4 ">
+                        <div class="thumbnail ">
 
                             <img src="<?= $img?>" alt="Image du produit" class="search-img" />
                             <div class="caption">
                                 <h1><?= $name?></h1>
 
-                                <p><a href="produit.php?id=<?= $data['products'][$i]['code']?>" class="btn btn-fill btn-margin-right" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                                <p><a href="produit.php?id=<?= $data['products'][$i]['code']?>" class="btn btn-accent" role="button">I Want It</a> </p>
                             </div>
                         </div>
-                    </div>
+
                 </div>
 
                 <?php
@@ -84,7 +109,6 @@ if(isset($_GET['search'])){
     <?php
 }
 
+include ('footer.php');
 ?>
 
-</body>
-</html>

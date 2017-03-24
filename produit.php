@@ -1,6 +1,6 @@
 <?php
-/*
-include('connect.php');
+
+/*include('connect.php');
 
 $options = array(
         PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
@@ -12,28 +12,12 @@ try {
     die('Connexion à la base de données impossible');
 
 }
-$sql = 'SELECT * FROM sport';
+$sql = 'SELECT sport FROM sports.sport';
 $res = $bdd -> query($sql);
-$sports = $res -> fetchAll();
+$sports = $res -> fetchAll(PDO::FETCH_ASSOC);*/
 
-<<<<<<< HEAD
-//foreach($sports as $sport) {
-//    echo $sport['sport'].'<br/>';
-//}
-?>
-=======
-foreach($sports as $sport) {
-    echo $sport['sport'].'<br/>';}
-*/?>
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Produit</title>
-</head>
-<body>
-<?php
-include('connect.php');
+
 include ('header.php');
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -44,8 +28,31 @@ if(isset($_GET['id'])) {
 ?>
 
 <style>
-    .hero{
+    .hero {
         background-image: url("public/img/header-nutriSport-2.jpg");
+    }
+    .thumb{
+        margin-top: 100px;
+    }
+    .thumb h1{
+        color: #66cd94;
+        font-size: 30px;
+    }
+
+    .tabProd p{
+        width: 400px;
+        text-align: justify;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .tabProd h2{
+       color: grey;
+      
+        font-size: 30px;
+    }
+
+    .tabProd h3{
+        color: #66cd94;
     }
 </style>
 <body id="top">
@@ -53,71 +60,59 @@ if(isset($_GET['id'])) {
     <section class="navigation">
         <header>
             <div class="header-content">
-                <div class="logo"><a href="#"><img src="public/img/Logo_NutriSport.png" Nutri'Sport Logo"></a>
+                <div class="logo"><a href="index.php"><img src="public/img/Logo_NutriSport.png" Nutri'Sport Logo"></a>
                 </div>
 
             </div>
         </header>
     </section>
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-lg-offset-6 col-md-10 col-md-offset-1 tabProd">
+        <div class="row text-center thumb">
+            <div class="col-lg-12 col-lg-offset-10 col-md-10 col-md-offset-1 tabProd">
                 <h1><?= $data['product']['brands']?></h1>
                 <div class="product-img">
-                    <img src="<?= $data['product']['image_small_url']?>"/
-                </div>
 
+                    <img src="<?= $data['product']['image_small_url']?>"/>
+                </div>
+                <hr/>
+                <h2>Ingrédients </h2>
+                <p><?= $data['product']['ingredients_text_with_allergens_fr']?></p>
+
+                <img src="nutriscore-<?= $data['product']['nutrition_grade_fr']?>.svg"/>
+
+                <h3>Calories : <?= $data['product']['nutriments']['energy_value'], $data['product']['nutriments']['energy_unit']?></h3>
+
+                </div>
 
 
             </div>
         </div>
+        <div class="row">
         <div class="spChoice">
             <?php
 
-         echo' <select class="form-control name=$sport->sport">
-                    foreach ($sport as $spor){
-                    echo $spor;
+         echo' <select class="form-control" name="sport">';
+                    foreach ($sports as $sport){
+                        foreach ($sport as $s) {
+                            echo '<option>' . $s . '</option>';
+                        }
+               }
 
-                }
-
-               </select>';
+              echo '</select>';
                 ?>
 
-            </select>
+        </div>
         </div>
     </div>
 
 </section>
 
 
-</body>
-</html>
 
 
 
-<table>
-    <tr>
-        <td>Product Name</td>
-        <td><?= $data['product']['product_name_fr']?></td>
-    </tr>
-    <tr>
-        <td>Brand</td>
-        <td><?= $data['product']['brands']?></td>
-    </tr>
-    <tr>
-        <td>Image</td>
-        <td><img src="<?= $data['product']['image_small_url']?>"/></td>
-    </tr>
-    <tr>
-        <td>Nutri Score</td>
-        <td><img src="nutriscore-<?= $data['product']['nutrition_grade_fr']?>.svg"/></td>
-    </tr>
-    <tr>
-        <td>Ingrédients</td>
-        <td><?= $data['product']['ingredients_text_with_allergens_fr']?></td>
-    </tr>
-    <tr>
-        <td>Calories</td>
-        <td><?= $data['product']['nutriments']['energy_value'], $data['product']['nutriments']['energy_unit']?></td>
-    </tr>
-</table>
+
+
+<?php
+    include ('footer.php');
+?>
